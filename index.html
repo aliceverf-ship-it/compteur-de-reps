@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Compteur de reps</title>
+</head>
+<body>
+
+  <p id="compteur">0</p>
+  <button onclick="incrementer()">+</button>
+  <button onclick="reset()">Remise à zéro</button>
+
+  <script>
+    let n = parseInt(localStorage.getItem("reps")) || 0;
+    document.getElementById("compteur").textContent = n;
+
+    function incrementer() {
+      n = n + 1;
+      document.getElementById("compteur").textContent = n;
+      localStorage.setItem("reps", n);
+    }
+
+    function reset() {
+      n = 0;
+      document.getElementById("compteur").textContent = n;
+      localStorage.setItem("reps", n);
+    }
+  </script>
+
+</body>
+</html>
